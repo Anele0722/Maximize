@@ -1,9 +1,0 @@
-{
-  "name": "shivah-wallet",
-  "version": "1.0.0",
-  "description": "Financial Dignity for Township Vendors",
-  "type": "module",
-  "scripts": {
-    "dev": "npx serve ."
-  }
-}
