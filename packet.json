@@ -1,0 +1,26 @@
+{
+  "name": "shivah-wallet-landing",
+  "version": "1.0.0",
+  "description": "Landing page for Shivah Wallet - empowering financial inclusion for township vendors",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --open=./index.html",
+    "minify": "terser js/*.js -o js/main.min.js",
+    "build-css": "postcss css/style.css -o css/style.min.css"
+  },
+  "keywords": [
+    "Shivah Wallet",
+    "financial inclusion",
+    "township vendors",
+    "fintech",
+    "landing page"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "terser": "^5.20.0",
+    "postcss-cli": "^10.1.0",
+    "autoprefixer": "^10.4.0"
+  }
+}
