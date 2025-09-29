@@ -1,48 +1,9 @@
 {
   "name": "shivah-wallet",
   "version": "1.0.0",
-  "description": "Financial Dignity for Township Vendors - A digital wallet solution for informal businesses in South Africa",
-  "main": "index.html",
+  "description": "Financial Dignity for Township Vendors",
+  "type": "module",
   "scripts": {
-    "start": "live-server --port=3000 --open=/index.html",
-    "dev": "live-server --port=3000 --watch=index.html,style.css,script.js",
-    "build": "echo 'Build complete - static HTML project'",
-    "test": "echo 'No tests specified'"
-  },
-  "keywords": [
-    "fintech",
-    "digital-wallet",
-    "financial-inclusion",
-    "south-africa",
-    "township-economy",
-    "payment-solutions",
-    "emerging-markets",
-    "mobile-payments"
-  ],
-  "author": {
-    "name": "Shivah Wallet Team",
-    "email": "hello@shivahwallet.com",
-    "url": "https://shivahwallet.com"
-  },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/shivah-wallet/shivah-wallet-website.git"
-  },
-  "bugs": {
-    "url": "https://github.com/shivah-wallet/shivah-wallet-website/issues"
-  },
-  "homepage": "https://shivahwallet.com",
-  "devDependencies": {
-    "live-server": "^1.2.2"
-  },
-  "engines": {
-    "node": ">=14.0.0",
-    "npm": ">=6.0.0"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+    "dev": "npx serve ."
+  }
 }
