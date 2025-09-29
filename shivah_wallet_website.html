@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivah Wallet - Financial Dignity for Township Vendors</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #FF6B6B 0%, #FFE66D 50%, #4ECDC4 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 60px,
+                rgba(255,255,255,0.05) 60px,
+                rgba(255,255,255,0.05) 120px
+            );
+            animation: slide 30s linear infinite;
+        }
+
+        @keyframes slide {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 0.95em;
+            margin-bottom: 30px;
+            border: 2px solid rgba(255,255,255,0.3);
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 4.5em;
+            margin-bottom: 30px;
+            font-weight: 900;
+            text-shadow: 2px 4px 20px rgba(0,0,0,0.2);
+            animation: fadeInUp 1s ease 0.2s both;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8em;
+            margin-bottom: 50px;
+            font-weight: 300;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.4s both;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            gap: 20px;
+            animation: fadeInUp 1s ease 0.6s both;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: white;
+            color: #FF6B6B;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #FF6B6B;
+            transform: translateY(-5px);
+        }
+
+        .btn {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(0);
+            animation: ripple-animation 0.6s ease-out;
+            pointer-events: none;
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .story-journey {
+            padding: 120px 20px;
+            background: #fff;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF6B6B, #FFE66D);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-size: 0.9em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            font-size: 3.5em;
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .journey-timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #FF6B6B, #FFE66D, #4ECDC4);
+            transform: translateX(-50%);
+        }
+
+        .journey-step {
+            display: flex;
+            gap: 60px;
+            margin-bottom: 80px;
+            position: relative;
+            align-items: center;
+        }
+
+        .journey-step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .journey-icon {
+            flex: 0 0 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #FF6B6B, #FFE66D);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5em;
+            box-shadow: 0 10px 40px rgba(255,107,107,0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .journey-content {
+            flex: 1;
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            border: 3px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .journey-content::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 30px;
+            padding: 3px;
+            background: linear-gradient(135deg, #FF6B6B, #FFE66D, #4ECDC4);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .journey-content:hover::before {
+            opacity: 1;
+        }
+
+        .journey-content:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+        }
+
+        .journey-content h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .journey-content p {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .quote {
+            background: linear-gradient(135deg, #FFF5E6, #FFE6E6);
+            padding: 30px 40px;
+            border-left: 6px solid #FF6B6B;
+            border-radius: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            font-size: 1.3em;
+            color: #333;
+        }
+
+        .problem-section {
+            padding: 120px 20px;
+            background: linear-gradient(135deg, #2C3E50, #3498DB);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-section::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .problem-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            padding: 50px 35px;
+            border-radius: 25px;
+            text-align: center;
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #FF6B6B, #FFE66D);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .problem-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .problem-card:hover {
+            transform: translateY(-15px);
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .problem-number {
+            font-size: 4em;
+            font-weight: 900;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #FFE66D, #FF6B6B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .problem-label {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .solution-section {
+            padding: 120px 20px;
+            background: #fff;
+        }
+
+        .solution-visual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 60px;
+        }
+
+        .solution-image {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(135deg, #FF6B6B, #FFE66D, #4ECDC4);
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8em;
+            box-shadow: 0 30px 80px rgba(255,107,107,0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .solution-features {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 25px;
+            align-items: start;
+            padding: 30px;
+            background: linear-gradient(135deg, #FFF5E6, #E6F9FF);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            flex-shrink: 0;
+        }
+
+        .feature-text h4 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .feature-text p {
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .impact-section {
+            padding: 120px 20px;
+            background: linear-gradient(135deg, #FFE66D, #FF6B6B);
+            text-align: center;
+        }
+
+        .revenue-section {
+            padding: 120px 20px;
+            background: #fff;
+        }
+
+        .revenue-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .revenue-card {
+            background: linear-gradient(135deg, #f8f9fa, #fff);
+            padding: 50px 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            border: 3px solid transparent;
+        }
+
+        .revenue-card:hover {
+            transform: translateY(-10px);
+            border-color: #FF6B6B;
+            box-shadow: 0 25px 70px rgba(255,107,107,0.2);
+        }
+
+        .revenue-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .revenue-card h3 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .revenue-detail {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .revenue-math {
+            background: linear-gradient(135deg, #FFE66D, #FF6B6B);
+            padding: 25px;
+            border-radius: 15px;
+            color: white;
+            margin-top: 20px;
+        }
+
+        .math-line {
+            font-size: 1.2em;
+            margin: 8px 0;
+        }
+
+        .math-result {
+            font-size: 1.5em;
+            font-weight: 900;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .premium-list {
+            list-style: none;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .premium-list li {
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            color: #555;
+            font-size: 1.1em;
+        }
+
+        .premium-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4ECDC4;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .why-now-section {
+            padding: 120px 20px;
+            background: linear-gradient(135deg, #2C3E50, #3498DB);
+            color: white;
+        }
+
+        .timing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .timing-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            padding: 40px 30px;
+            border-radius: 25px;
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: all 0.4s ease;
+        }
+
+        .timing-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .timing-number {
+            font-size: 3em;
+            font-weight: 900;
+            color: #FFE66D;
+            margin-bottom: 15px;
+        }
+
+        .timing-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .timing-card p {
+            font-size: 1.1em;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .competitive-section {
+            padding: 120px 20px;
+            background: #f8f9fa;
+        }
+
+        .comparison-table {
+            max-width: 1000px;
+            margin: 60px auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .comparison-row:last-child {
+            border-bottom: none;
+        }
+
+        .header-row {
+            background: linear-gradient(135deg, #FF6B6B, #FFE66D);
+            color: white;
+            font-weight: 900;
+        }
+
+        .comparison-cell {
+            padding: 25px 20px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .comparison-cell:first-child {
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .highlight-col {
+            background: linear-gradient(135deg, rgba(255,107,107,0.1), rgba(255,230,109,0.1));
+            font-weight: 700;
+            color: #FF6B6B;
+        }
+
+        .roadmap-section {
+            padding: 120px 20px;
+            background: white;
+        }
+
+        .roadmap-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .roadmap-phase {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .roadmap-phase:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.15);
+        }
+
+        .phase-badge {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+        }
+
+        .phase-1 {
+            background: linear-gradient(135deg, #FF6B6B, #FFE66D);
+        }
+
+        .phase-2 {
+            background: linear-gradient(135deg, #FFE66D, #4ECDC4);
+        }
+
+        .phase-3 {
+            background: linear-gradient(135deg, #4ECDC4, #3498DB);
+        }
+
+        .phase-4 {
+            background: linear-gradient(135deg, #3498DB, #9B59B6);
+        }
+
+        .roadmap-phase h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .phase-target {
+            color: #FF6B6B;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+
+        .phase-goals {
+            list-style: none;
+            text-align: left;
+        }
+
+        .phase-goals li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+            font-size: 1.05em;
+        }
+
+        .phase-goals li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #4ECDC4;
+            font-weight: bold;
+        }
+
+        .team-section {
+            padding: 120px 20px;
+            background: linear-gradient(135deg, #f8f9fa, #fff);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .team-card {
+            background: white;
+            padding: 50px 35px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.12);
+        }
+
+        .team-avatar {
+            font-size: 5em;
+            margin-bottom: 20px;
+        }
+
+        .team-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .team-expertise {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .investment-section {
+            padding: 120px 20px;
+            background: linear-gradient(135deg, #FF6B6B, #FFE66D);
+            color: white;
+        }
+
+        .investment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .investment-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(20px);
+            padding: 50px 40px;
+            border-radius: 30px;
+            border: 2px solid rgba(255,255,255,0.3);
+            transition: all 0.4s ease;
+        }
+
+        .investment-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.2);
+        }
+
+        .investment-label {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .investment-value {
+            font-size: 4em;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .investment-desc {
+            font-size: 1.3em;
+            opacity: 0.95;
+        }
+
+        .investment-breakdown {
+            margin-top: 20px;
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            font-size: 1.1em;
+        }
+
+        .breakdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .breakdown-item span:first-child {
+            font-weight: 900;
+        }
+
+        .impact-statement {
+            max-width: 800px;
+            margin: 80px auto 0;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(20px);
+            padding: 50px;
+            border-radius: 30px;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .impact-statement h3 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+
+        .impact-statement p {
+            font-size: 1.4em;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .impact-card {
+            background: white;
+            padding: 50px 30px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .impact-card:hover {
+            transform: translateY(-20px) scale(1.05);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+        }
+
+        .impact-emoji {
+            font-size: 5em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .impact-value {
+            font-size: 3.5em;
+            font-weight: 900;
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .impact-description {
+            font-size: 1.2em;
+            color: #555;
+            font-weight: 600;
+        }
+
+        .transformation-section {
+            padding: 120px 20px;
+            background: #fff;
+        }
+
+        .before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .before-card, .after-card {
+            padding: 60px 40px;
+            border-radius: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .before-card {
+            background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+            color: white;
+        }
+
+        .after-card {
+            background: linear-gradient(135deg, #FF6B6B, #FFE66D);
+            color: white;
+        }
+
+        .card-label {
+            font-size: 1.5em;
+            font-weight: 900;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .card-points {
+            list-style: none;
+        }
+
+        .card-points li {
+            font-size: 1.3em;
+            margin-bottom: 25px;
+            padding-left: 50px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .card-points li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .after-card .card-points li::before {
+            content: '✓';
+            color: #fff;
+        }
+
+        .cta-final {
+            padding: 120px 20px;
+            background: linear-gradient(135deg, #2C3E50, #3498DB);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-final::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="2" fill="white" opacity="0.1"/></svg>');
+            animation: float 20s linear infinite;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-final h2 {
+            font-size: 4em;
+            margin-bottom: 30px;
+            font-weight: 900;
+        }
+
+        .cta-final p {
+            font-size: 1.6em;
+            margin-bottom: 50px;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 2em;
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #FF6B6B, #FFE66D);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @media (max-width: 968px) {
+            .hero h1 {
+                font-size: 3em;
+            }
+
+            .hero-subtitle {
+                font-size: 1.3em;
+            }
+
+            .solution-visual,
+            .before-after {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-line {
+                left: 40px;
+            }
+
+            .journey-step,
+            .journey-step:nth-child(even) {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">💫 Invisible to Banks? Not Anymore</div>
+            <h1>Financial Freedom Starts Here</h1>
+            <p class="hero-subtitle">Manage your money effortlessly with Shiva Wallet.</p>
+            <div class="hero-cta">
+                <a href="#solution" class="btn btn-primary">See The Solution</a>
+                <a href="#impact" class="btn btn-secondary">Our Impact</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="story-journey">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">HER STORY</span>
+                <h2 class="section-title">A Day in Mama Thembi's Life</h2>
+            </div>
+
+            <div class="journey-timeline">
+                <div class="timeline-line"></div>
+                
+                <div class="journey-step">
+                    <div class="journey-icon">☀️</div>
+                    <div class="journey-content">
+                        <h3>4:00 AM - The Day Begins</h3>
+                        <p>Mama Thembi wakes up in Soweto. She's 50 years old and has been selling vetkoeks and pap for 15 years. Every morning starts the same way - cash tucked in her apron, no bank card, no receipt book.</p>
+                    </div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="journey-icon">🏪</div>
+                    <div class="journey-content">
+                        <h3>The Daily Struggle</h3>
+                        <p>Customers ask her every single day: "Mama, can I pay you by phone?" She always has to say the same thing...</p>
+                        <div class="quote">"Sorry my child, cash only."</div>
+                        <p>She loses customers. They walk away. They have no cash. She has no solution.</p>
+                    </div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="journey-icon">💭</div>
+                    <div class="journey-content">
+                        <h3>Her Dreams</h3>
+                        <p>She dreams of hiring a helper. Getting a stall at the taxi rank. Saving for her daughter's school fees. Growing her business.</p>
+                        <p style="margin-top: 20px; font-weight: 600; color: #FF6B6B; font-size: 1.3em;">But how? No bank takes her seriously. She has no digital footprint. No financial records. No proof of income.</p>
+                    </div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="journey-icon">⚠️</div>
+                    <div class="journey-content">
+                        <h3>The Risk She Takes Every Day</h3>
+                        <p>She walks home with cash in her apron. R500. R1,000. Sometimes more. She's been robbed twice. She can't track what she makes. She can't plan. She can't save safely.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="problem-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label" style="background: white; color: #2C3E50;">THE BIGGER PICTURE</span>
+                <h2 class="section-title" style="-webkit-text-fill-color: white; color: white;">Mama Thembi Isn't Alone</h2>
+                <p style="font-size: 1.3em; max-width: 800px; margin: 0 auto; opacity: 0.9;">Millions of hardworking vendors face the same challenges every single day</p>
+            </div>
+
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-number">1.9M</div>
+                    <div class="problem-label">Small businesses in SA selling food, clothes, and services - most dealing only in cash</div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-number">R750B</div>
+                    <div class="problem-label">Money moving through townships every year - but banks can't see it</div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-number">72%</div>
+                    <div class="problem-label">Keep no records at all - meaning no loans, no growth, no opportunity</div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-number">74%</div>
+                    <div class="problem-label">Don't have bank accounts - locked out of the financial system</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solution-section" id="solution">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">OUR SOLUTION</span>
+                <h2 class="section-title">Introducing Shivah Wallet</h2>
+                <p style="font-size: 1.3em; color: #555; max-width: 800px; margin: 0 auto;">Imagine if Mama Thembi could accept payments by phone, track every sale, and build a digital footprint - all in 2 minutes from her phone.</p>
+            </div>
+
+            <div class="solution-visual">
+                <div class="solution-image">📱</div>
+                <div class="solution-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <div class="feature-text">
+                            <h4>Get Paid Instantly</h4>
+                            <p>Customers scan a code, pay from their phone. Money arrives in seconds. No waiting. No bank trips.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">📊</div>
+                        <div class="feature-text">
+                            <h4>Track Every Sale</h4>
+                            <p>See exactly what you made today, this week, this month. Build proof of your business.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">🔒</div>
+                        <div class="feature-text">
+                            <h4>Safe & Secure</h4>
+                            <p>No more walking around with cash. Your money is protected. Your records are safe.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">🌍</div>
+                        <div class="feature-text">
+                            <h4>Built For You</h4>
+                            <p>Works offline. In local language. Designed for real township life.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="transformation-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">THE TRANSFORMATION</span>
+                <h2 class="section-title">Before & After Shivah Wallet</h2>
+            </div>
+
+            <div class="before-after">
+                <div class="before-card">
+                    <div class="card-label">❌ Without Shivah Wallet</div>
+                    <ul class="card-points">
+                        <li>Loses customers who have no cash</li>
+                        <li>Walks home with money in her apron</li>
+                        <li>No idea what she really makes</li>
+                        <li>Can't get a loan to grow</li>
+                        <li>No bank will look at her</li>
+                        <li>Dreams stay dreams</li>
+                    </ul>
+                </div>
+
+                <div class="after-card">
+                    <div class="card-label">✨ With Shivah Wallet</div>
+                    <ul class="card-points">
+                        <li>Accepts payments from anyone's phone</li>
+                        <li>Money is safe and tracked</li>
+                        <li>Knows exactly how her business is doing</li>
+                        <li>Has records banks can actually see</li>
+                        <li>Can save for her daughter's education</li>
+                        <li>Can finally grow her business</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="impact-section" id="impact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label" style="background: white; color: #FF6B6B;">THE OPPORTUNITY</span>
+                <h2 class="section-title" style="-webkit-text-fill-color: white; color: white;">The Market Is Massive</h2>
+            </div>
+
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <span class="impact-emoji">🍲</span>
+                    <div class="impact-value">R360B</div>
+                    <div class="impact-description">Food vendors make this much every year</div>
+                </div>
+
+                <div class="impact-card">
+                    <span class="impact-emoji">👥</span>
+                    <div class="impact-value">3M+</div>
+                    <div class="impact-description">Jobs depend on informal businesses</div>
+                </div>
+
+                <div class="impact-card">
+                    <span class="impact-emoji">🏪</span>
+                    <div class="impact-value">263K</div>
+                    <div class="impact-description">Vendors in Gauteng alone</div>
+                </div>
+
+                <div class="impact-card">
+                    <span class="impact-emoji">📈</span>
+                    <div class="impact-value">8%</div>
+                    <div class="impact-description">Of SA's entire economy is townships</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="revenue-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">THE BUSINESS MODEL</span>
+                <h2 class="section-title">How We Make Money</h2>
+                <p style="font-size: 1.3em; color: #555; max-width: 800px; margin: 0 auto;">Simple, scalable, and sustainable revenue streams</p>
+            </div>
+
+            <div class="revenue-grid">
+                <div class="revenue-card">
+                    <div class="revenue-icon">💳</div>
+                    <h3>1% Transaction Fee</h3>
+                    <p class="revenue-detail">Every payment processed through Shivah  Wallet</p>
+                    <div class="revenue-math">
+                        <div class="math-line">R750 Billion township economy</div>
+                        <div class="math-line">× 1% fee</div>
+                        <div class="math-result">= R7.5 Billion potential annual revenue</div>
+                    </div>
+                </div>
+
+                <div class="revenue-card">
+                    <div class="revenue-icon">⭐</div>
+                    <h3>Premium Features</h3>
+                    <p class="revenue-detail">For vendors who want to grow faster</p>
+                    <ul class="premium-list">
+                        <li>Advanced sales analytics</li>
+                        <li>Credit score building</li>
+                        <li>Inventory management</li>
+                        <li>Priority support</li>
+                    </ul>
+                </div>
+
+                <div class="revenue-card">
+                    <div class="revenue-icon">🏢</div>
+                    <h3>Business Partnerships</h3>
+                    <p class="revenue-detail">White-label solutions for institutions</p>
+                    <ul class="premium-list">
+                        <li>Banks wanting township data</li>
+                        <li>Government programs</li>
+                        <li>NGOs & municipalities</li>
+                        <li>Large retailers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-now-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">PERFECT TIMING</span>
+                <h2 class="section-title">Why Now?</h2>
+            </div>
+
+            <div class="timing-grid">
+                <div class="timing-card">
+                    <div class="timing-number">01</div>
+                    <h3>📱 Smartphone Adoption Exploding</h3>
+                    <p>85% of South Africans now own smartphones. Even street vendors have access to the technology.</p>
+                </div>
+
+                <div class="timing-card">
+                    <div class="timing-number">02</div>
+                    <h3>💸 Cash is Becoming Risky</h3>
+                    <p>Crime rates are pushing vendors to seek digital solutions. Safety is now a priority, not a luxury.</p>
+                </div>
+
+                <div class="timing-card">
+                    <div class="timing-number">03</div>
+                    <h3>🏦 Banks Want This Market</h3>
+                    <p>Financial institutions are desperate for data on informal businesses to expand their reach.</p>
+                </div>
+
+                <div class="timing-card">
+                    <div class="timing-number">04</div>
+                    <h3>🌍 Digital Payments Growing 40% Yearly</h3>
+                    <p>The shift from cash to digital is accelerating across Africa. We're catching the wave.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="competitive-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">OUR EDGE</span>
+                <h2 class="section-title">Why We Win</h2>
+            </div>
+
+            <div class="comparison-table">
+                <div class="comparison-row header-row">
+                    <div class="comparison-cell">Feature</div>
+                    <div class="comparison-cell highlight-col">Shivah Wallet</div>
+                    <div class="comparison-cell">Traditional Banks</div>
+                    <div class="comparison-cell">Other Payment Apps</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell">Works Offline</div>
+                    <div class="comparison-cell highlight-col">✅</div>
+                    <div class="comparison-cell">❌</div>
+                    <div class="comparison-cell">❌</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell">Built for Townships</div>
+                    <div class="comparison-cell highlight-col">✅</div>
+                    <div class="comparison-cell">❌</div>
+                    <div class="comparison-cell">❌</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell">No Bank Account Needed</div>
+                    <div class="comparison-cell highlight-col">✅</div>
+                    <div class="comparison-cell">❌</div>
+                    <div class="comparison-cell">⚠️</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell">Instant Setup (2 mins)</div>
+                    <div class="comparison-cell highlight-col">✅</div>
+                    <div class="comparison-cell">❌ (weeks)</div>
+                    <div class="comparison-cell">⚠️ (complex)</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell">Local Language Support</div>
+                    <div class="comparison-cell highlight-col">✅</div>
+                    <div class="comparison-cell">⚠️</div>
+                    <div class="comparison-cell">❌</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell">Micro-Transaction Friendly</div>
+                    <div class="comparison-cell highlight-col">✅ (R0.0002 fee)</div>
+                    <div class="comparison-cell">❌ (high fees)</div>
+                    <div class="comparison-cell">⚠️ (moderate fees)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="roadmap-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">OUR PLAN</span>
+                <h2 class="section-title">The Path to Scale</h2>
+            </div>
+
+            <div class="roadmap-timeline">
+                <div class="roadmap-phase">
+                    <div class="phase-badge phase-1">Phase 1</div>
+                    <h3>Launch in Soweto</h3>
+                    <div class="phase-target">First 6 Months</div>
+                    <ul class="phase-goals">
+                        <li>500 active vendors</li>
+                        <li>Test & refine the product</li>
+                        <li>Build case studies</li>
+                        <li>Prove the model works</li>
+                    </ul>
+                </div>
+
+                <div class="roadmap-phase">
+                    <div class="phase-badge phase-2">Phase 2</div>
+                    <h3>Expand Across Gauteng</h3>
+                    <div class="phase-target">Months 6-18</div>
+                    <ul class="phase-goals">
+                        <li>10,000 active vendors</li>
+                        <li>Partner with taxi associations</li>
+                        <li>Launch premium features</li>
+                        <li>First bank partnerships</li>
+                    </ul>
+                </div>
+
+                <div class="roadmap-phase">
+                    <div class="phase-badge phase-3">Phase 3</div>
+                    <h3>National Rollout</h3>
+                    <div class="phase-target">Year 2-3</div>
+                    <ul class="phase-goals">
+                        <li>100,000+ vendors nationwide</li>
+                        <li>Multi-province presence</li>
+                        <li>B2B partnerships scaled</li>
+                        <li>Credit product launch</li>
+                    </ul>
+                </div>
+
+                <div class="roadmap-phase">
+                    <div class="phase-badge phase-4">Phase 4</div>
+                    <h3>Pan-African Expansion</h3>
+                    <div class="phase-target">Year 3+</div>
+                    <ul class="phase-goals">
+                        <li>Kenya, Nigeria, Mozambique, Ghana</li>
+                        <li>1M+ vendors across Africa</li>
+                        <li>Full financial services suite</li>
+                        <li>Market leader position</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">WHO WE ARE</span>
+                <h2 class="section-title">The Team Building This</h2>
+                <p style="font-size: 1.3em; color: #555; max-width: 800px; margin: 0 auto;">Local expertise meets global technology experience</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">👨‍💼</div>
+                    <h3>Founder & CEO</h3>
+                    <p class="team-expertise">Township-born entrepreneur with fintech experience</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">👩‍💻</div>
+                    <h3>Head of Technology</h3>
+                    <p class="team-expertise">Built payment systems used by millions across emerging markets</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">👨‍🏫</div>
+                    <h3>Community Director</h3>
+                    <p class="team-expertise">Years working with informal traders and township businesses</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">👩‍💼</div>
+                    <h3>Partnerships Lead</h3>
+                    <p class="team-expertise">Former banking executive with deep connections to SA financial institutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="investment-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label" style="background: white; color: #FF6B6B;">THE ASK</span>
+                <h2 class="section-title" style="-webkit-text-fill-color: white; color: white;">Investment Opportunity</h2>
+                <p style="font-size: 1.3em; color: white; max-width: 800px; margin: 0 auto; opacity: 0.95;">Help us bring financial dignity to millions of vendors across Africa</p>
+            </div>
+
+            <div class="investment-grid">
+                <div class="investment-card">
+                    <div class="investment-label">Seeking</div>
+                    <div class="investment-value">$2M</div>
+                    <div class="investment-desc">Seed Round</div>
+                </div>
+
+                <div class="investment-card">
+                    <div class="investment-label">Use of Funds</div>
+                    <div class="investment-breakdown">
+                        <div class="breakdown-item">
+                            <span>40%</span>
+                            <span>Product Development</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>30%</span>
+                            <span>Vendor Onboarding</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>20%</span>
+                            <span>Marketing & Growth</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>10%</span>
+                            <span>Operations</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="investment-card">
+                    <div class="investment-label">Projected Returns</div>
+                    <div class="investment-breakdown">
+                        <div class="breakdown-item">
+                            <span>Year 1</span>
+                            <span>R15M revenue</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Year 2</span>
+                            <span>R75M revenue</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Year 3</span>
+                            <span>R250M revenue</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Year 5</span>
+                            <span>R1B+ revenue</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="impact-statement">
+                <h3>💡 This Isn't Just An Investment</h3>
+                <p>It's a chance to transform millions of lives, formalize an entire economy, and build one of Africa's most impactful fintech companies.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-final">
+        <div class="cta-content">
+            <h2>Let's Give  Dreams</h2>
+            <p>Every vendor deserves dignity. Every business deserves a chance to grow. Every dream deserves a path forward.</p>
+            <a href="#contact" class="btn btn-primary" style="font-size: 1.3em; padding: 20px 60px;">Lets Chat!</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">Shivah Wallet</div>
+            <p style="font-size: 1.1em; opacity: 0.8;">Delivering financial dignity to township vendors.</p>
+            <p style="margin-top: 30px; opacity: 0.6;">&copy; 2025 Shivah Wallet Studio. Built with ❤️ for South Africa.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for scroll animations
+        document.querySelectorAll('.journey-step, .problem-card, .feature-item, .impact-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Add ripple effect to buttons
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero-content');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                hero.style.opacity = 1 - (scrolled / 700);
+            }
+        });
+
+        // Counter animation for stats
+        function animateCounter(element, target, duration = 2000) {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = formatNumber(target);
+                    clearInterval(timer);
+                } else {
+                    element.textContent = formatNumber(Math.floor(current));
+                }
+            }, 16);
+        }
+
+        function formatNumber(num) {
+            if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+            if (num >= 1000) return (num / 1000).toFixed(0) + 'K';
+            return num.toString();
+        }
+
+        // Observe impact cards for counter animation
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const valueEl = entry.target.querySelector('.impact-value');
+                    if (valueEl && !valueEl.classList.contains('animated')) {
+                        valueEl.classList.add('animated');
+                        const text = valueEl.textContent;
+                        const num = parseFloat(text.replace(/[^\d.]/g, ''));
+                        const multiplier = text.includes('M') ? 1000000 : 
+                                         text.includes('K') ? 1000 : 
+                                         text.includes('B') ? 1 : 1;
+                        
+                        if (!isNaN(num)) {
+                            valueEl.textContent = '0';
+                            setTimeout(() => {
+                                animateCounter(valueEl, num * multiplier);
+                            }, 200);
+                        }
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.impact-card').forEach(card => {
+            counterObserver.observe(card);
+        });
+    </script>
+</body>
+</html>
